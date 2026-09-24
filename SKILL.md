@@ -16,6 +16,8 @@ Output from this skill is normally consumed by the `firearm-listing-import` skil
 
 The working folder is the batch folder whose subfolders are named after serial numbers. It is remembered across sessions in the plain-text file `~/.config/product-description-seo/workdir` (one line: the absolute path).
 
+On Windows `~` is the user's home folder (e.g. `C:\Users\<name>`), so the default is `C:\Users\<name>\Desktop`. Always save the expanded absolute path, never a literal `~`, `%USERPROFILE%` or `$HOME`.
+
 - **First run** (the file does not exist): before researching or writing, ask the user where the working folder is. Offer the Desktop (`~/Desktop`) as the default and accept an absolute path or a folder name under the Desktop. Expand `~`, check the folder exists, save the path to the file, and confirm it in one line.
 - **Later runs**: read the file, state the folder in one line at the start (`Working folder: ~/Desktop/OSA batch 3`) and carry on without asking. If the saved folder no longer exists, say so and ask again as on the first run.
 - A batch folder the user names in the request wins for that run without changing the saved default.

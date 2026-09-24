@@ -13,8 +13,14 @@ knows is in `SKILL.md`.
 
 - **Claude Code:** `ln -sfn "$PWD/product-description-seo" ~/.claude/skills/product-description-seo`
 - **Codex:** `ln -sfn "$PWD/product-description-seo" ~/.codex/skills/product-description-seo`
+- **Windows (PowerShell; use `.codex` for Codex):**
 
-Then `/product-description-seo workdir` once to pick the working folder (default `~/Desktop`);
+  ```powershell
+  New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
+  New-Item -ItemType Junction -Force -Path "$HOME\.claude\skills\product-description-seo" -Target "$PWD\product-description-seo"
+  ```
+
+Then `/product-description-seo workdir` once to pick the working folder (default `~/Desktop`; on Windows the home folder's Desktop, e.g. `C:\Users\<name>\Desktop`);
 `/product-description-seo import` hands the written folders to firearm-listing-import.
 
 ## Contract with the importer
