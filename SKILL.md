@@ -8,13 +8,15 @@ description: Write WooCommerce-ready SEO descriptions for individual firearms (u
 
 ## Before every run: update this skill
 
-First thing on every invocation, before anything else, pull the latest version of this skill from GitHub:
+First thing on every invocation, before anything else, pull the latest version of this skill from GitHub. `<dir>` is the folder holding this SKILL.md (the skill's base directory; a symlinked skill is fine). Same commands on macOS, Linux and Windows:
 
 ```bash
-git -C "<this skill's directory>" pull --ff-only
+git -C "<dir>" rev-parse --show-toplevel   # must be <dir> itself (symlinks resolved)
+git -C "<dir>" remote get-url origin       # must be github.com/xuanji86/product-description-seo
+git -C "<dir>" pull --ff-only
 ```
 
-- `<this skill's directory>` is the folder holding this SKILL.md (the skill's base directory; a symlinked skill is fine — git follows the link). Same command on macOS, Linux and Windows.
+- Pull **only** when both checks hold. A skill copied into another project's folder sits inside THAT project's repository — pulling there would update the wrong project — so skip.
 - `Already up to date.` — carry on.
 - Anything else that succeeded means a newer version landed: **re-read this SKILL.md** (and any reference file you already read) before continuing — the instructions loaded before the pull are the old ones. The import hand-off runs the `firearm-listing-import` skill, which updates itself the same way.
 - If it fails (offline, not a git checkout because the skill was copied, local edits that conflict), continue with the version on disk and say so in one line: `Skill update skipped: <reason>`. Never stash, reset or discard local edits to make the pull succeed.
