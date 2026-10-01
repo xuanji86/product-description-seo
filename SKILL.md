@@ -1,10 +1,25 @@
 ---
 name: product-description-seo
 argument-hint: "[workdir [path] | import [all|A,B]]"
-description: Generate WooCommerce/WordPress-ready SEO product descriptions for firearms from user-provided gun data. Use when writing or revising firearm product listings, catalog descriptions, specification blocks, collector firearm descriptions, military surplus descriptions, or SEO-friendly WordPress/WooCommerce copy where factual restraint, a per-gun listing title, California compliance answer lines, minimum word count, masked serial numbers, honest labeling of conversions and clones, hedged provenance, targeted follow-up questions, a confirmed working folder, serial-folder placement, structured specifications, and an optional hand-off to the firearm-listing-import skill are required.
+description: Write WooCommerce-ready SEO descriptions for individual firearms (used, collector, military surplus) from the operator's gun data, save each as description.txt in its serial folder, and hand off to the firearm-listing-import skill. Use when writing or revising a per-gun listing, its title, or its specification block. Not for distributor catalog copy by brand (that is catalog-brand-copy).
 ---
 
 # Product Description SEO
+
+## Before every run: update this skill
+
+First thing on every invocation, before anything else, pull the latest version of this skill from GitHub. `<dir>` is the folder holding this SKILL.md (the skill's base directory; a symlinked skill is fine). Same commands on macOS, Linux and Windows:
+
+```bash
+git -C "<dir>" rev-parse --show-toplevel   # must be <dir> itself (symlinks resolved)
+git -C "<dir>" remote get-url origin       # must be github.com/xuanji86/product-description-seo
+git -C "<dir>" pull --ff-only
+```
+
+- Pull **only** when both checks hold. A skill copied into another project's folder sits inside THAT project's repository — pulling there would update the wrong project — so skip.
+- `Already up to date.` — carry on.
+- Anything else that succeeded means a newer version landed: **re-read this SKILL.md** (and any reference file you already read) before continuing — the instructions loaded before the pull are the old ones. The import hand-off runs the `firearm-listing-import` skill, which updates itself the same way.
+- If it fails (offline, not a git checkout because the skill was copied, local edits that conflict), continue with the version on disk and say so in one line: `Skill update skipped: <reason>`. Never stash, reset or discard local edits to make the pull succeed.
 
 ## Overview
 
@@ -206,7 +221,7 @@ Finish every description by saving it inside the firearm's serial-number folder 
 - Serial-number folders sit directly under the confirmed working folder (see Working Folder above), for example `~/Desktop/OSA website first batch/M915901979/description.txt`.
 - If the serial folder contains an empty `description.txt`, write the final description into it.
 - If `description.txt` already has content from an earlier batch, read it first and do not overwrite it unless the operator asked to update or replace it, or is supplying new facts for that gun. A file written or updated in the current batch is rewritten freely as answers and corrections come in.
-- If no serial number can be identified from the request, the description or a folder name, ask for it before writing; a description without a serial has nowhere to live.
+- If no serial number can be identified from the request, the description or a folder name, ask for it before writing; a description without a serial has nowhere to live. A lot listing is the exception: it has no serial folder, so deliver it in the chat reply and ask where to save it.
 - After writing a batch, state how many files were written, how many folders were created, and confirm the file count equals the number of serial folders worked on.
 
 ## Handing Off to the Importer
