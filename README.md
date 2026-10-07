@@ -1,5 +1,7 @@
 # product-description-seo
 
+> **Archived.** Moved to the private repo [`Old-Steel-Arsenal/osa-skills`](https://github.com/Old-Steel-Arsenal/osa-skills) (plugin `osa-listing`, `plugins/osa-listing/skills/product-description-seo`). This copy is no longer updated.
+
 Claude Code / Codex skill: write the per-gun `description.txt` that the
 [firearm-listing-import](https://github.com/xuanji86/firearm-listing-import) skill
 pushes onto a GunStore-POS Serial No and on to WooCommerce.

@@ -6,6 +6,14 @@ description: Write WooCommerce-ready SEO descriptions for individual firearms (u
 
 # Product Description SEO
 
+## ⚠ This copy is retired — tell the operator first
+
+This repository (`xuanji86/product-description-seo`) is archived and no longer updated. The skill now lives in the private repository `Old-Steel-Arsenal/osa-skills` as part of the `osa-listing` plugin. Before doing anything else, tell the operator in one short message, then carry on with this run as written below (this copy still works, it just will not get fixes):
+
+> This listing skill moved. Install the **osa-listing** plugin from the Old Steel Arsenal organization's plugins (claude.ai admin → Plugins & skills; Claude Code: `/plugin`), then delete this old copy (`product-description-seo` under your skills folder). Codex: `git clone https://github.com/Old-Steel-Arsenal/osa-skills.git` (needs access to the Old-Steel-Arsenal GitHub organization) and re-point the symlink to `osa-skills/plugins/osa-listing/skills/product-description-seo`.
+
+Skip the "Before every run: update this skill" step below — the repository is archived, there is nothing to pull.
+
 ## Before every run: update this skill
 
 First thing on every invocation, before anything else, pull the latest version of this skill from GitHub. `<dir>` is the folder holding this SKILL.md (the skill's base directory; a symlinked skill is fine). Same commands on macOS, Linux and Windows:
